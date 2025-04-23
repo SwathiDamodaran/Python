@@ -1,0 +1,78 @@
+class contact:
+  @staticmethod
+  def View_contact(n):
+      print("Contacts:")
+      for name, number in n.items():
+          print(f"{name}: {number}")
+  @staticmethod
+  def Search(n):
+     a=str(input('enter the name:'))
+     print('Contact number:'+str(n.get(a)))
+  @staticmethod
+  def Add(n):
+     a = str(input('enter the name:'))
+     b= int(input('enter the number:'))
+     c=str(b)
+     if(len(c)==10):
+         n[a]=b
+         print("Contact is added successfully")
+     else:
+        while (True):
+         print('Invalid number, Check your number')
+         b = int(input('enter the number:'))
+         c = str(b)
+         if (len(c) == 10):
+           n[a] = b
+           break
+  @staticmethod
+  def Delete(n):
+      a = str(input('enter the name:'))
+      n.pop(a)
+      print('Contact is deleted successfully ')
+  @staticmethod
+  def Update(n):
+     a = str(input('enter the name:'))
+     b = int(input('enter the number:'))
+     n.pop(a)
+     c=str(b)
+     if (len(c)== 10):
+        n[a] = b
+        print("Contact is Updated successfully")
+     else:
+         while (True):
+             print('Invalid number, Check your number')
+             b = int(input('enter the number:'))
+             c = str(b)
+             if (len(c) == 10):
+                 n[a] = b
+                 break
+
+Display="""
+      1.View_contact()
+      2.Search()
+      3.Add()
+      4.Delete()
+      5.Update()
+      6.Exit
+"""
+
+c = contact()
+n = {'A': 9876543210, 'B': 9876543201, 'C': 9876543102}
+while True:
+    print(Display)
+    choice = str(input("Enter your choice: "))
+    if choice == "1":
+        c.View_contact(n)
+    elif choice == "2":
+        c.Search(n)
+    elif choice == "3":
+        c.Add(n)
+    elif choice == "4":
+        c.Delete(n)
+    elif choice == "5":
+        c.Update(n)
+    elif choice == "6":
+        print("Thank you! Exiting...")
+        break
+    else:
+        print("Invalid choice! Please enter a valid option.")
