@@ -1,0 +1,46 @@
+class Textile:
+    def __init__(self,dresses,d):
+        self.dresses=dresses
+        self.d=d
+
+    def discount(self,n,m,d):
+         amt = float(dresses.get(m)-(d[n]*dresses.get(m)/100))
+         print("Total amount for your dress is:"+str(amt)+"Rs")
+         return amt
+    def buy(self,amt,n):
+        if amt==n:
+             print("You  purchased your dress")
+        elif (amt>n):
+            while (amt>n):
+             print("You need to pay balance amount "+str(amt-n)+"Rs to purchase your dress")
+             m=int(input("Enter your balance amount:"))
+             if m==(amt-n):
+                print("You  purchased your dress")
+                n+=m
+             else:
+                 n+=m
+            if n>amt:
+                print("You  purchased your dress and your balance amount " + str(n - amt) + "Rs is returned")
+        else:
+            print("You  purchased your dress and your balance amount "+str(n-amt)+"Rs is returned")
+
+dresses={"salwar":750,"jeans":990,"lehenga":2000,"saree":5000}
+d=[0,30,20,40,50]
+dr=Textile(dresses,d)
+DList="""
+      1.salwar
+      2.jeans
+      3.lehenga
+      4.saree
+"""
+D={1:'salwar',2:'jeans',3:'lehenga',4:'saree'}
+while True:
+     print(DList)
+     x=int(input("Enter your choice:"))
+     if (x<=4&x>0):
+       amt=dr.discount(x,D.get(x),d)
+       n = int(input("Enter your amount for payment:"))
+       dr.buy(amt,n)
+     else:
+         print("Thank you come again")
+         quit()
